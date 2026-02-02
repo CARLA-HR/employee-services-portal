@@ -268,6 +268,54 @@ body {
     font-size: 14px;
   }
 }
+/* MOBILE NAVBAR FIX */
+@media (max-width: 768px) {
+
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+    background: #d9534f; /* your red */
+  }
+
+  .navbar li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar a {
+    display: block;
+    padding: 14px;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  .navbar a br {
+    display: none; /* prevents ABOUT\nUS */
+  }
+}
+/* MOBILE FORM CARDS */
+@media (max-width: 768px) {
+
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .image-box {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .image-box h3 {
+    font-size: 18px;
+    margin-top: 10px;
+  }
+}
 
 </style>
 </head>

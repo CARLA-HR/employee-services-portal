@@ -401,14 +401,20 @@ body {
 
 <!-- MAIN CONTENT -->
 <div class="content">
-  <h1>HRAD FORMS & FILING</h1>
-  <p>Click on an image below or search to open a form.</p>
-
   <div class="search-bar">
     <input type="text" id="searchInput" placeholder="Search a form">
     <button onclick="searchForm()">Search</button>
   </div>
-
+<!-- VIDEO SECTION -->
+<div class="video-section">
+  <video controls poster="video-cover.jpg">
+    <source src="HMR.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</div>
+</script>
+<div id="branches-footer">
+<div class="branches-footer">
   <!-- IMAGE GRID -->
   <div class="image-container">
     <div class="image-box">
@@ -447,14 +453,21 @@ function searchForm() {
 
   alert("Form not found.");
 }
-	<!-- VIDEO SECTION -->
-<div class="video-section">
-  <video controls poster="video-cover.jpg">
-    <source src="HMR.mp4" type="video/mp4">
-    Your browser does not support the video tag.
-  </video>
-</div>
 </script>
+	
+.video-section {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 0 20px;
+}
+
+.video-section video {
+  width: 100%;
+  border-radius: 12px;
+}
+
+
+
 <div id="branches-footer">
 <div class="branches-footer">
 
@@ -567,5 +580,3 @@ function searchForm() {
 </div>
 </body>
 </html>
-
-

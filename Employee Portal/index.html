@@ -20,6 +20,15 @@ if ("serviceWorker" in navigator) {
 
 <style>
 /* ===== RESET ===== */
+/* FIX BROKEN / TINY IMAGES */
+.image-box img,
+.logo img {
+  width: 100%;
+  max-width: 140px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -206,6 +215,7 @@ body {
   margin-top: 10px;
   font-weight: bold;
 }
+
 /* =========================
    MOBILE RESPONSIVE FIXES
    ========================= */
@@ -213,7 +223,7 @@ body {
 
   /* LOGO */
   .logo img {
-    max-width: 200px;
+    max-width: px;
     width: 80%;
   }
 
@@ -250,7 +260,7 @@ body {
   }
 
   .image-box {
-    width: 90%;
+    width: 80%;
   }
 
   /* FOOTER BRANCHES */
@@ -264,6 +274,54 @@ body {
 
   .branch-item {
     font-size: 14px;
+  }
+}
+/* MOBILE NAVBAR FIX */
+@media (max-width: 768px) {
+
+  .navbar ul {
+    display: flex;
+    flex-direction: column;
+    background: #d9534f; /* your red */
+  }
+
+  .navbar li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar a {
+    display: block;
+    padding: 14px;
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  .navbar a br {
+    display: none; /* prevents ABOUT\nUS */
+  }
+}
+/* MOBILE FORM CARDS */
+@media (max-width: 768px) {
+
+  .image-container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .image-box {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 12px;
+    background: #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+
+  .image-box h3 {
+    font-size: 18px;
+    margin-top: 10px;
   }
 }
 
@@ -316,7 +374,7 @@ body {
   <!-- LOGO -->
   <div class="logo">
 <img src="HPI.png" alt="Company Logo">    
-<img src="EPI.png" alt="Company Logo">
+<img src="logo.png" alt="Company Logo">
 <img src="HASI.jpg" alt="Company Logo">
 <img src="HRH.png" alt="Company Logo">
   </div>

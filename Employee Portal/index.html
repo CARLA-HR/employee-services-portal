@@ -206,6 +206,67 @@ body {
   margin-top: 10px;
   font-weight: bold;
 }
+/* =========================
+   MOBILE RESPONSIVE FIXES
+   ========================= */
+@media (max-width: 768px) {
+
+  /* LOGO */
+  .logo img {
+    max-width: 200px;
+    width: 80%;
+  }
+
+  /* HEADER */
+  .header {
+    padding: 10px 0;
+    background-position: center;
+  }
+
+  /* NAVBAR */
+  .navbar ul {
+    flex-direction: column;
+  }
+
+  .navbar a {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  /* SEARCH */
+  .search-bar input {
+    width: 90%;
+    margin-bottom: 10px;
+  }
+
+  .search-bar button {
+    width: 90%;
+  }
+
+  /* FORM ICONS */
+  .image-container {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .image-box {
+    width: 90%;
+  }
+
+  /* FOOTER BRANCHES */
+  .branch-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .branches-footer {
+    padding: 40px 20px;
+  }
+
+  .branch-item {
+    font-size: 14px;
+  }
+}
+
 </style>
 </head>
 

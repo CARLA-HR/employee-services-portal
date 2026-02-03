@@ -233,6 +233,32 @@ body {
     </div>
   </div>
 </div>
+</script>
+
+<div class="branches-footer">
+    <!-- Add the rest of your forms here -->
+  </div>
+</div>
+
+<script>
+function searchForm() {
+  const query = document.getElementById("searchInput").value.toLowerCase();
+
+  const forms = {
+    leave: "https://docs.google.com/forms/d/e/1FAIpQLScCRDXzrm34elCEe70IFthETo9XMujmyGExI3qtYFtojtjX3A/viewform",
+    ot: "https://docs.google.com/forms/d/e/1FAIpQLScxyZWTdpnHDqnKEiJT-DPh1do7Kz6e8idGJA003snP0I9S5Q/viewform"
+  };
+
+  for (let key in forms) {
+    if (query.includes(key)) {
+      window.open(forms[key], "_blank");
+      return;
+    }
+  }
+
+  alert("Form not found.");
+}
+</script>
 
 <div id="branches" class="branches-footer">
  
@@ -345,6 +371,7 @@ body {
 </div>
 </body>
 </html>
+
 
 
 

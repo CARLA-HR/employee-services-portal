@@ -17,6 +17,16 @@ if ("serviceWorker" in navigator) {
   });
 }
 </script>
+<script>
+document.querySelectorAll(".dropdown > a").forEach(menu => {
+  menu.addEventListener("click", function (e) {
+    if (window.innerWidth <= 768) {
+      e.preventDefault();
+      this.parentElement.classList.toggle("active");
+    }
+  });
+});
+</script>
 
 <style>
 body {
@@ -137,6 +147,25 @@ body {
   .search-bar input,
   .search-bar button { width: 90%; }
 }
+	/* ===== MOBILE DROPDOWN FIX ===== */
+@media (max-width: 768px) {
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    background: #ffffff;
+  }
+
+  .dropdown-content a {
+    border-top: 1px solid #eee;
+  }
+
+  .dropdown.active .dropdown-content {
+    display: block;
+  }
+
+}
+
 </style>
 </head>
 
@@ -278,6 +307,7 @@ function searchForm() {
 
 </body>
 </html>
+
 
 
 

@@ -110,22 +110,25 @@ body {
 .video-section {
   max-width: 700px;
   margin: 20px auto;
-  padding: 0 10px;
+  padding: 0 20px;
 }
+
 .video-wrapper {
-  width: 100%;
-  aspect-ratio: 10 / 6;
-  background: black;
   position: relative;
+  width: 100%;
+  aspect-ratio: 10 / 6;   /* 🔒 LOCKED RATIO */
+  background: #000;
   overflow: hidden;
 }
-.video-wrapper video {
+
+.video-wrapper iframe {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  border: 0;
 }
+
 
 /* FOOTER */
 .branches-footer {
@@ -310,6 +313,7 @@ function searchForm() {
 
 </body>
 </html>
+
 
 
 

@@ -49,6 +49,7 @@ document.addEventListener("click", function (e) {
   });
 });
 </script>
+	
 <style>
 body {
   margin: 0;
@@ -362,8 +363,8 @@ body {
     </div>
   </div>
 </div>
-
 <script>
+	
 function searchForm() {
   const query = document.getElementById("searchInput").value.toLowerCase();
   const forms = {
@@ -379,9 +380,61 @@ function searchForm() {
   alert("Form not found.");
 }
 </script>
+	<script>
+let newWorker;
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("service-worker.js");
+
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    window.location.reload();
+  });
+
+  navigator.serviceWorker.addEventListener("message", event => {
+    if (event.data === "NEW_VERSION") {
+      document.getElementById("updateBanner").style.display = "block";
+    }
+  });
+}
+
+function updateApp() {
+  if (newWorker) {
+    newWorker.postMessage({ action: "skipWaiting" });
+  }
+}
+</script>
+
+<div id="updateBanner" style="
+  display:none;
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%);
+  background:#0f2a5c;
+  color:white;
+  padding:14px 20px;
+  border-radius:10px;
+  box-shadow:0 5px 15px rgba(0,0,0,.3);
+  z-index:9999;
+">
+  New version available
+  <button onclick="updateApp()" style="
+    margin-left:12px;
+    background:#5bbde6;
+    border:none;
+    color:white;
+    padding:6px 12px;
+    border-radius:6px;
+    font-weight:bold;
+    cursor:pointer;
+  ">
+    Refresh
+  </button>
+</div>
 
 </body>
 </html>
+
 
 
 

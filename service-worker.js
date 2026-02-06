@@ -1,4 +1,4 @@
-const CACHE_NAME = "employee-portal-v2";
+const CACHE_NAME = "employee-portal-v3";
 
 const FILES_TO_CACHE = [
   "./",
@@ -38,4 +38,3 @@ self.addEventListener("fetch", event => {
     fetch(event.request).catch(() => caches.match(event.request))
   );
 });
-

@@ -1,20 +1,41 @@
-const CACHE_NAME = "employee-services-portal-v1";
+const CACHE_NAME = "employee-portal-v2";
+
 const FILES_TO_CACHE = [
-  "index.html",
-  "manifest.json",
-  "logo.png"
+  "./",
+  "./index.html",
+  "./mission-vision.html",
+  "./manifest.json",
+  "./service-worker.js",
+  "./banner.jpg",
+  "./logo.png",
+  "./hpi.png",
+  "./hasi.jpg",
+  "./hrh.png",
+  "./epi.png",
+  "./video-cover.jpg"
 ];
 
 self.addEventListener("install", event => {
+  self.skipWaiting();
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => cache.addAll(FILES_TO_CACHE))
   );
 });
 
+self.addEventListener("activate", event => {
+  event.waitUntil(
+    caches.keys().then(keys =>
+      Promise.all(
+        keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
+      )
+    )
+  );
+  self.clients.claim();
+});
+
 self.addEventListener("fetch", event => {
   event.respondWith(
-    caches.match(event.request).then(response => {
-      return response || fetch(event.request);
-    })
+    fetch(event.request).catch(() => caches.match(event.request))
   );
 });
+

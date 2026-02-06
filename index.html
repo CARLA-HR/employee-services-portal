@@ -58,20 +58,34 @@ body {
   overflow-x: hidden;
 }
 
-/* TOP STRIP */
+/* ===== TOP STRIP ===== */
 .top-strip {
-  background: #5bbde6;
+  background: #6ec1e4; /* light blue */
   color: white;
   text-align: center;
-  padding: 8px;
+  padding: 8px 12px;
   font-size: 14px;
 }
 
-/* HEADER */
-.header {
-  background: url("banner.jpg") center/cover no-repeat;
-  padding: 5px 0;
+/* ===== LOGO STRIP ===== */
+.logo-strip {
+  background: #f2f9ff; /* very light blue */
+  padding: 20px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 25px;
+  flex-wrap: wrap;
 }
+
+/* LOGOS */
+.logo-strip img {
+  height: 60px;
+  width: auto;
+}
+
+/* HEADER */
+
 
 /* NAVBAR */
 .navbar {
@@ -242,8 +256,17 @@ body {
 
 <body>
 
+!-- TOP STRIP -->
 <div class="top-strip">
-  “HMR-Human Resource Innovation By: Carla Ramos”
+  “HMR – Human Resource Innovation by Carla Ramos”
+</div>
+
+<!-- LOGO STRIP -->
+<div class="logo-strip">
+  <img src="hpi.png" alt="HPI">
+  <img src="logo.png" alt="HMR Logo">
+  <img src="hasi.jpg" alt="HASI">
+  <img src="hrh.png" alt="HRH">
 </div>
 
 <div class="header">
@@ -279,13 +302,6 @@ body {
       <li><a href="#branches">CONTACT US</a></li>
     </ul>
   </div>
-</div>
-
-<div class="logo">
-  <img src="hpi.png" alt="HPI Logo">
-  <img src="epi.png" alt="EPI Logo">
-  <img src="hasi.jpg" alt="HASI Logo">
-  <img src="hrh.png" alt="HRH Logo">
 </div>
 
 <div class="content">
@@ -434,6 +450,7 @@ function updateApp() {
 
 </body>
 </html>
+
 
 
 

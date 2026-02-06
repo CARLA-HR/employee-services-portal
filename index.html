@@ -8,15 +8,7 @@
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0f2a5c">
 
-<script>
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
-    navigator.serviceWorker
-      .register("service-worker.js")
-      .catch(err => console.log("SW error:", err));
-  });
-}
-</script>
+<!-- Service worker temporarily disabled -->
 	<script>
 document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
   toggle.addEventListener("click", function (e) {
@@ -390,6 +382,7 @@ function searchForm() {
 
 </body>
 </html>
+
 
 
 

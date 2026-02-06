@@ -18,16 +18,28 @@ if ("serviceWorker" in navigator) {
 }
 </script>
 <script>
-document.querySelectorAll(".dropdown > a").forEach(menu => {
-  menu.addEventListener("click", function (e) {
-    if (window.innerWidth <= 768) {
-      e.preventDefault();
-      this.parentElement.classList.toggle("active");
-    }
+document.addEventListener("click", function (e) {
+
+  // Handle dropdown toggle
+  if (e.target.classList.contains("dropdown-toggle")) {
+    e.preventDefault();
+    const dropdown = e.target.parentElement;
+
+    // Close others
+    document.querySelectorAll(".dropdown").forEach(d => {
+      if (d !== dropdown) d.classList.remove("open");
+    });
+
+    dropdown.classList.toggle("open");
+    return;
+  }
+
+  // Tap outside closes all
+  document.querySelectorAll(".dropdown").forEach(d => {
+    d.classList.remove("open");
   });
 });
 </script>
-
 <style>
 body {
   margin: 0;
@@ -87,7 +99,53 @@ body {
   display: block;
   text-decoration: none;
 }
-.dropdown:hover .dropdown-content { display: block; }
+.dropdown-content {
+  display: none;
+}
+
+.dropdown.open .dropdown-content {
+  display: block;
+}
+	/* DROPDOWN BASE */
+.dropdown-content {
+  display: none;
+  background: white;
+  min-width: 200px;
+  box-shadow: 0 6px 15px rgba(0,0,0,.2);
+  border-radius: 8px;
+  overflow: hidden;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 999;
+}
+
+/* OPEN STATE */
+.dropdown.open .dropdown-content {
+  display: block;
+  animation: dropdownFade .25s ease;
+}
+
+/* ANIMATION */
+@keyframes dropdownFade {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MOBILE MODE */
+@media (max-width: 768px) {
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    border-radius: 0;
+  }
+}
 
 /* LOGOS */
 .logo {
@@ -182,15 +240,15 @@ body {
   <div class="navbar">
     <ul>
       <li><a href="#">HOME</a></li>
-      <li class="dropdown">
-        <a href="#">ABOUT US ▼</a>
+     <li class="dropdown">
+  <a href="javascript:void(0)" class="dropdown-toggle">ABOUT US ▼</a>
         <div class="dropdown-content">
           <a href="mission-vision.html">HISTORY</a>
           <a href="#">HR Team</a>
         </div>
       </li>
-      <li class="dropdown">
-        <a href="#">SERVICES ▼</a>
+     <li class="dropdown">
+  <a href="javascript:void(0)" class="dropdown-toggle">SERVICES ▼</a>
         <div class="dropdown-content">
           <a href="https://forms.gle/G1KsbCssrSfVWG897" target="_blank"">Leave</a>
           <a href="https://forms.gle/DbwuqcZsx7aZ6vxu8" target="_blank"">Timekeeping</a>
@@ -199,8 +257,8 @@ body {
 		</div>
       </li>
 
-      <li class="dropdown">
-	<a href="#">FORMS▼</a>
+    <li class="dropdown">
+  <a href="javascript:void(0)" class="dropdown-toggle">FORMS▼</a>
 	<div class="dropdown-content">
 	<a href="https://drive.google.com/file/d/1HIVTkIHOaIRi6Q7b0U50n-ceWK_rXMSK/view?usp=drive_link" target="_blank"">OT Claim</a>
  	<a href="https://drive.google.com/file/d/1sN0lNm_Zuns8cGsILC49N-qPTvUutoZb/view?usp=drive_link"target=_blank"">Leave Form</a>
@@ -315,6 +373,7 @@ function searchForm() {
 
 </body>
 </html>
+
 
 
 

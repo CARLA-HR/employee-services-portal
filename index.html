@@ -463,35 +463,41 @@ body {
   </div>
 </div>
 
-<!-- MAIN CONTENT -->
-<div class="media-row">
+<!-- MAIN CONTENT GRID -->
+<div class="main-grid">
 
   <!-- VIDEO -->
-  <div class="media-video">
+  <div class="video-section">
     <div class="video-wrapper">
-      <video controls poster="video-cover.jpg">
-        <source src="video.mp4" type="video/mp4">
-      </video>
+      <iframe
+        src="https://www.youtube.com/embed/fYIlTGmR55I?rel=0"
+        title="HMR Video"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
     </div>
   </div>
 
   <!-- NEWS -->
-  <div class="media-news">
-<strong>New Policy Updates SY 2026–2027</strong>
-	  <h3>News & Updates</h3>
-    <ul>
-      <li>HR Portal launched</li>
-      <li>Online Leave Filing</li>
-      <li>Policy updates coming</li>
-    </ul>
-      <strong>Employee Update</strong>
-      <p>Updated leave and overtime guidelines effective next month.</p>
+  <div class="news-section">
+    <h2>News & Updates</h2>
+
+    <div class="news-item">
+      <strong>Early Registration SY 2026–2027</strong>
+      <p>Registration period is ongoing. Please coordinate with HR.</p>
+    </div>
+
+    <div class="news-item">
+      <strong>Policy Update</strong>
+      <p>New leave guidelines effective next month.</p>
     </div>
 
     <a href="#" class="read-more">Read more →</a>
   </div>
 
 </div>
+
 
 <div id="branches" class="branches-footer">
   <h2>HMR AUCTION BRANCHES</h2>
@@ -621,6 +627,7 @@ function updateApp() {
 
 </body>
 </html>
+
 
 
 

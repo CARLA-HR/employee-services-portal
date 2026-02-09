@@ -432,7 +432,6 @@ body {
 </div>
 
 <div class="navbar">
-  <div class="navbar-inner">
     <ul>
       <li><a href="#">HOME</a></li>
      <li class="dropdown">
@@ -465,23 +464,41 @@ body {
     </ul>
   </div>
 </nav>
-<!-- MAIN CONTENT GRID -->
-<div class="main-wrap">
+<div class="media-section">
 
-  <div class="main-layout">
+  <div class="video-box">
+    <div class="video-wrapper">
+      <video controls poster="video-cover.jpg">
+        <source src="video.mp4" type="video/mp4">
+      </video>
+    </div>
+  </div>
 
-    <!-- LEFT COLUMN -->
-    <div class="left-column">
+  <!-- NEWS -->
+  <div class="news-section">
+	<div class="media-news">
+    <h2>News & Updates</h2>
+    <div class="news-item">
+      <strong>New Policies & Procedures SY 2026–2027</strong>
+      <p>System Update is ongoing. Please coordinate with HR.</p>
+    </div>
+    <div class="news-item">
+      <strong>Policy Update</strong>
+      <p>New leave guidelines effective next month.</p>
+    </div>
+	  <div class="media-news">
+    <h3>News & Updates</h3>
+    <ul>
+      <li>HR Portal launched</li>
+      <li>Online Leave Filing</li>
+      <li>Policy updates coming</li>
+    </ul>
+  </div>
 
-      <div class="video-wrapper">
-        <iframe
-          width="100%"
-          height="100%"
-          src="https://www.youtube.com/embed/fYIlTGmR55I"
-          frameborder="0"
-          allowfullscreen>
-        </iframe>
-      </div>
+    <a href="#" class="read-more">Read more →</a>
+  </div>
+
+</div>
 <div id="branches" class="branches-footer">
    <h2>HMR RETAIL BRANCHES</h2>
   <div class="branch-grid">
@@ -519,32 +536,6 @@ body {
     </div>
   </div>
 </div>
-  <!-- NEWS -->
-  <div class="news-section">
-	<div class="media-news">
-    <h2>News & Updates</h2>
-    <div class="news-item">
-      <strong>New Policies & Procedures SY 2026–2027</strong>
-      <p>System Update is ongoing. Please coordinate with HR.</p>
-    </div>
-    <div class="news-item">
-      <strong>Policy Update</strong>
-      <p>New leave guidelines effective next month.</p>
-    </div>
-	  <div class="media-news">
-    <h3>News & Updates</h3>
-    <ul>
-      <li>HR Portal launched</li>
-      <li>Online Leave Filing</li>
-      <li>Policy updates coming</li>
-    </ul>
-  </div>
-
-    <a href="#" class="read-more">Read more →</a>
-  </div>
-
-</div>
-
 
 
 <script>
@@ -618,6 +609,7 @@ function updateApp() {
 
 </body>
 </html>
+
 
 
 

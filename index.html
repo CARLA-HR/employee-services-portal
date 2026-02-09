@@ -290,79 +290,55 @@ body {
 .search-bar input { width: 300px; padding: 10px; }
 .search-bar button { padding: 10px 20px; }
 
-/* ===== VIDEO + NEWS GRID ===== */
-.main-grid {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 20px;
-  padding: 25px;
-  box-sizing: border-box;
+/* CENTER VIDEO + NEWS */
+.media-row {
+  max-width: 1200px;
+  margin: 40px auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0; /* 🔒 no gap */
 }
 
 /* VIDEO */
-.video-section {
-  width: 80%;
+.media-video {
+  flex: 2;
 }
 
+/* NEWS */
+.media-news {
+  flex: 1;
+  padding-left: 20px; /* only spacing, not a box */
+}
+
+/* VIDEO LOCK */
 .video-wrapper {
-  position: relative;
   width: 100%;
-  min-height: 320px;          /* 🔒 IMPORTANT FIX */
   aspect-ratio: 16 / 9;
-  background: #000;
-  border-radius: 8px;
-  overflow: hidden;
+  position: relative;
 }
 
-.video-wrapper iframe {
+.video-wrapper video {
   position: absolute;
   inset: 0;
   width: 100%;
   height: 100%;
-  border: 0;
+  object-fit: contain;
 }
 
-/* NEWS */
-.news-section {
-  background: #ffffff;
-  padding: 18px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
-}
-
-.news-section h2 {
-  margin-top: 0;
-  color: #0f2a5c;
-}
-
-.news-item {
-  margin-bottom: 14px;
-}
-
-.news-item p {
-  margin: 4px 0 0;
-  font-size: 14px;
-  color: #555;
-}
-
-.read-more {
-  display: inline-block;
-  margin-top: 10px;
-  color: #0f2a5c;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-/* MOBILE STACK */
+/* MOBILE */
 @media (max-width: 768px) {
-  .main-grid {
-    grid-template-columns: 1fr;
+  .media-row {
+    flex-direction: column;
   }
 
-  .video-wrapper {
-    min-height: 220px;
+  .media-news {
+    padding-left: 0;
+    margin-top: 20px;
   }
 }
+
 
 /* ===== SMALLER FOOTER ===== */
 .branches-footer {
@@ -476,30 +452,26 @@ body {
 </div>
 
 <!-- MAIN CONTENT -->
-<div class="main-grid">
+<div class="media-row">
 
   <!-- VIDEO -->
-  <div class="video-section">
+  <div class="media-video">
     <div class="video-wrapper">
-      <iframe
-        src="https://www.youtube.com/embed/fYIlTGmR55I?rel=0&playsinline=1"
-        title="HMR Video"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-        allowfullscreen>
-      </iframe>
+      <video controls poster="video-cover.jpg">
+        <source src="video.mp4" type="video/mp4">
+      </video>
     </div>
   </div>
 
   <!-- NEWS -->
-  <div class="news-section">
-    <h2>News & Updates</h2>
-
-    <div class="news-item">
-      <strong>New Policy Updates SY 2026–2027</strong>
-      <p>System Update is ongoing. Please coordinate with HR.</p>
-    </div>
-
-    <div class="news-item">
+  <div class="media-news">
+<strong>New Policy Updates SY 2026–2027</strong>
+	  <h3>News & Updates</h3>
+    <ul>
+      <li>HR Portal launched</li>
+      <li>Online Leave Filing</li>
+      <li>Policy updates coming</li>
+    </ul>
       <strong>Employee Update</strong>
       <p>Updated leave and overtime guidelines effective next month.</p>
     </div>
@@ -637,6 +609,7 @@ function updateApp() {
 
 </body>
 </html>
+
 
 
 

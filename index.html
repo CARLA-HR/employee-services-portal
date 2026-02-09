@@ -364,26 +364,39 @@ body {
   }
 }
 
-/* FOOTER */
+/* ===== SMALLER FOOTER ===== */
 .branches-footer {
   background: #0f2a5c;
   color: #d7deea;
-  padding: 60px 20px;
+  padding: 35px 20px;   /* 🔽 smaller */
+  font-size: 14px;
 }
+
+.branches-footer h2 {
+  color: #ffffff;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
 .branch-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 25px;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
 }
-.branch-title { font-weight: bold; color: white; }
 
-/* MOBILE */
-@media (max-width: 768px) {
-  .navbar ul { flex-direction: column; }
-  .logo img { max-height: 40px; }
-  .search-bar input,
-  .search-bar button { width: 90%; }
+.branch-title {
+  font-weight: bold;
+  color: #ffffff;
+  margin-bottom: 4px;
 }
+
+.branch-address {
+  font-size: 13px;
+  line-height: 1.4;
+  color: #cbd5e1;
+}
+
 	/* ===== MOBILE DROPDOWN FIX ===== */
 @media (max-width: 768px) {
 
@@ -624,6 +637,7 @@ function updateApp() {
 
 </body>
 </html>
+
 
 
 

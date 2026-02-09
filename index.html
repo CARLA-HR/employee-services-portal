@@ -409,6 +409,12 @@ body {
   }
 
 }
+/* GLOBAL CONTENT ALIGNMENT */
+.container {
+  max-width: 1100px;   /* controls purple alignment */
+  margin: 0 auto;
+  padding: 0 16px;
+}
 
 </style>
 </head>
@@ -434,8 +440,9 @@ body {
 
 </div>
 
+<nav class="navbar">
 <div class="header">
-  <div class="navbar">
+  <div class="container">
     <ul>
       <li><a href="#">HOME</a></li>
      <li class="dropdown">
@@ -467,12 +474,11 @@ body {
       <li><a href="#branches">CONTACT US</a></li>
     </ul>
   </div>
-</div>
-
+</nav>
 <!-- MAIN CONTENT GRID -->
 <div class="main-grid">
-
   <!-- VIDEO -->
+	<div class="container">
   <div class="video-section">
     <div class="video-wrapper">
       <iframe
@@ -513,6 +519,7 @@ body {
 
 
 <div id="branches" class="branches-footer">
+	<div class="container">
    <h2>HMR RETAIL BRANCHES</h2>
   <div class="branch-grid">
     <div class="branch-item">
@@ -620,6 +627,7 @@ function updateApp() {
 
 </body>
 </html>
+
 
 
 

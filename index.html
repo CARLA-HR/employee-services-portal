@@ -290,27 +290,28 @@ body {
 .search-bar input { width: 300px; padding: 10px; }
 .search-bar button { padding: 10px 20px; }
 
-/* VIDEO */
-.video-section {
-  max-width: 700px;
-  margin: 20px auto;
-  padding: 0 20px;
-}
-
-/* MAIN GRID */
+/* ===== VIDEO + NEWS GRID ===== */
 .main-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr; /* video bigger */
-  gap: 25px;
-  padding: 30px;
+  grid-template-columns: 2fr 1fr;
+  gap: 20px;
+  padding: 25px;
+  box-sizing: border-box;
 }
 
 /* VIDEO */
+.video-section {
+  width: 100%;
+}
+
 .video-wrapper {
   position: relative;
   width: 100%;
+  min-height: 320px;          /* 🔒 IMPORTANT FIX */
   aspect-ratio: 16 / 9;
-  background: black;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 .video-wrapper iframe {
@@ -318,14 +319,15 @@ body {
   inset: 0;
   width: 100%;
   height: 100%;
+  border: 0;
 }
 
 /* NEWS */
 .news-section {
   background: #ffffff;
-  padding: 20px;
+  padding: 18px;
   border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.08);
 }
 
 .news-section h2 {
@@ -334,11 +336,11 @@ body {
 }
 
 .news-item {
-  margin-bottom: 15px;
+  margin-bottom: 14px;
 }
 
 .news-item p {
-  margin: 5px 0 0;
+  margin: 4px 0 0;
   font-size: 14px;
   color: #555;
 }
@@ -347,8 +349,8 @@ body {
   display: inline-block;
   margin-top: 10px;
   color: #d9534f;
-  text-decoration: none;
   font-weight: bold;
+  text-decoration: none;
 }
 
 /* MOBILE STACK */
@@ -356,9 +358,11 @@ body {
   .main-grid {
     grid-template-columns: 1fr;
   }
+
+  .video-wrapper {
+    min-height: 220px;
+  }
 }
-
-
 
 /* FOOTER */
 .branches-footer {
@@ -404,7 +408,6 @@ body {
 
 <body>
 
-!-- TOP STRIP -->
 <div class="top-strip">
   “HMR – Human Resource Innovation by Carla Ramos”
 </div>
@@ -459,16 +462,15 @@ body {
   </div>
 </div>
 
-<!-- MAIN CONTENT GRID -->
+<!-- MAIN CONTENT -->
 <div class="main-grid">
 
   <!-- VIDEO -->
   <div class="video-section">
     <div class="video-wrapper">
       <iframe
-        src="https://www.youtube.com/embed/fYIlTGmR55I?rel=0"
+        src="https://www.youtube.com/embed/fYIlTGmR55I?rel=0&playsinline=1"
         title="HMR Video"
-        frameborder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowfullscreen>
       </iframe>
@@ -486,14 +488,13 @@ body {
 
     <div class="news-item">
       <strong>Policy Update</strong>
-      <p>New leave guidelines effective next month.</p>
+      <p>Updated leave and overtime guidelines effective next month.</p>
     </div>
 
     <a href="#" class="read-more">Read more →</a>
   </div>
 
 </div>
-
 
 <div id="branches" class="branches-footer">
   <h2>HMR AUCTION BRANCHES</h2>
@@ -623,6 +624,7 @@ function updateApp() {
 
 </body>
 </html>
+
 
 
 

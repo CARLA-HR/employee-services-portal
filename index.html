@@ -67,21 +67,64 @@ body {
   font-size: 14px;
 }
 
-/* ===== LOGO STRIP ===== */
-.logo-strip {
-  background: #f2f9ff; /* very light blue */
-  padding: 20px 10px;
+/* LOGO + SEARCH STRIP */
+.logo-search-strip {
+  background: #f2f9ff;
+  padding: 15px 20px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 25px;
+  justify-content: space-between;
+  gap: 20px;
   flex-wrap: wrap;
 }
 
 /* LOGOS */
-.logo-strip img {
-  height: 60px;
+.logos {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logos img {
+  height: 45px;   /* 🔽 smaller logos */
   width: auto;
+}
+
+/* SEARCH */
+.search-box {
+  display: flex;
+  gap: 8px;
+}
+
+.search-box input {
+  padding: 8px 10px;
+  width: 200px;
+}
+
+.search-box button {
+  padding: 8px 14px;
+  background: #0f2a5c;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .logo-search-strip {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .search-box {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .search-box input {
+    width: 70%;
+  }
 }
 
 /* ===== NAVBAR ===== */
@@ -516,6 +559,7 @@ function updateApp() {
 
 </body>
 </html>
+
 
 
 

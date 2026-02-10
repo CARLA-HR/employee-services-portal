@@ -337,43 +337,31 @@ body {
 </div>
 
 <script>
-function searchForm() {
-  const query = document.getElementById("searchInput").value.toLowerCase();
-  const forms = {
-    leave: "#",
-    ot: "#"
-  };
-  for (let key in forms) {
-    if (query.includes(key)) {
-      window.open(forms[key], "_blank");
-      return;
-    }
-  }
-  alert("Form not found.");
-}
-
-// Dropdown toggle
-document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
-  toggle.addEventListener("click", function (e) {
-    e.preventDefault();
-    const parent = this.parentElement;
-    document.querySelectorAll(".dropdown").forEach(d => {
-      if (d !== parent) d.classList.remove("open");
-    });
-    parent.classList.toggle("open");
-  });
-});
-document.addEventListener("click", function (e) {
-  if (!e.target.classList.contains("dropdown-toggle")) {
-    document.querySelectorAll(".dropdown").forEach(d => d.classList.remove("open"));
-  }
-});
-</script>
-<script>
 document.addEventListener("DOMContentLoaded", () => {
+
+  function searchForm() {
+    const query = document.getElementById("searchInput").value.toLowerCase();
+    const forms = {
+      leave: "#",
+      ot: "#"
+    };
+
+    for (let key in forms) {
+      if (query.includes(key)) {
+        window.open(forms[key], "_blank");
+        return;
+      }
+    }
+    alert("Form not found.");
+  }
+
+  window.searchForm = searchForm;
+
+  // Dropdown toggle (PWA-safe)
   document.querySelectorAll(".dropdown-toggle").forEach(toggle => {
     toggle.addEventListener("click", function (e) {
       e.preventDefault();
+
       const parent = this.parentElement;
 
       document.querySelectorAll(".dropdown").forEach(d => {
@@ -383,11 +371,23 @@ document.addEventListener("DOMContentLoaded", () => {
       parent.classList.toggle("open");
     });
   });
+
+  // Click outside closes dropdown
+  document.addEventListener("click", function (e) {
+    if (!e.target.closest(".dropdown")) {
+      document.querySelectorAll(".dropdown").forEach(d =>
+        d.classList.remove("open")
+      );
+    }
+  });
+
 });
 </script>
 
+
 </body>
 </html>
+
 
 
 

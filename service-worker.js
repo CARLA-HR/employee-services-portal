@@ -15,25 +15,19 @@ const FILES_TO_CACHE = [
   "./video-cover.jpg"
 ];
 
-self.addEventListener("install", event => {
+self.addEventListener('install', event => {
   self.skipWaiting();
-  event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(FILES_TO_CACHE))
-  );
 });
 
-self.addEventListener("activate", event => {
-  event.waitUntil(
-    caches.keys().then(keys =>
-      Promise.all(
-        keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
-      )
-    )
-  );
-  self.clients.claim();
+self.addEventListener('activate', event => {
+  clients.claim();
 });
 
-self.addEventListener("fetch", event => {
+self.addEventListener('fetch', event => {
+  if (event.request.destination === 'video') {
+    return; // let browser handle video normally
+  }
+
   event.respondWith(
     fetch(event.request).catch(() => caches.match(event.request))
   );
@@ -49,5 +43,6 @@ self.addEventListener("fetch", event => {
     return;
   }
 });
+
 
 

@@ -267,18 +267,13 @@ body {
 
 <div class="media-video">
   <div class="video-wrapper">
-    <iframe
-      src="https://www.youtube.com/embed/YfYIlTGmR55I?playsinline=1"
-      title="YouTube video"
-      loading="lazy"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-
-    <p style="color:red">IF YOU SEE THIS, FLEX IS WORKING</p>
+    <video controls playsinline>
+      <source src="Video.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
   </div>
 </div>
+
 
   <!-- RIGHT: NEWS -->
   <div class="media-news">
@@ -393,6 +388,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 </body>
 </html>
+
 
 
 

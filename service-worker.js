@@ -43,4 +43,11 @@ self.addEventListener("message", event => {
     self.skipWaiting();
   }
 });
+self.addEventListener("fetch", event => {
+  if (event.request.url.includes("youtube.com") ||
+      event.request.url.includes("googlevideo.com")) {
+    return;
+  }
+});
+
 

@@ -280,19 +280,12 @@ body {
   <!-- LEFT: VIDEO -->
   <div class="media-video">
     <div class="video-wrapper">
-      <video controls playsinline>
+      <video controls playsinline muted
+  preload="metadata">
         <source src="Video.mp4" type="video/mp4">
       </video>
     </div>
   </div>
-<video
-  controls
-  playsinline
-  muted
-  preload="metadata">
-  <source src="/Video.mp4" type="video/mp4">
-</video>
-
 
   <!-- RIGHT: NEWS -->
   <div class="media-news">
@@ -414,6 +407,7 @@ if ('serviceWorker' in navigator) {
 
 </body>
 </html>
+
 
 
 

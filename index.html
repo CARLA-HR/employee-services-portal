@@ -408,9 +408,40 @@ if ('serviceWorker' in navigator) {
   });
 }
 </script>
+<button onclick="showChange()">Change Password</button>
+
+<div id="changeBox" style="display:none">
+  <input id="oldP" type="password" placeholder="Old Password"><br>
+  <input id="newP" type="password" placeholder="New Password"><br>
+  <button onclick="changePass()">Save</button>
+</div>
+
+<script>
+function showChange() {
+  changeBox.style.display = "block";
+}
+
+function changePass() {
+  fetch(API_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      action: "change",
+      empNo: localStorage.getItem("empNo"),
+      oldPass: oldP.value,
+      newPass: newP.value
+    })
+  })
+  .then(r => r.json())
+  .then(d => {
+    if (d.success) alert("Password changed");
+    else alert("Old password incorrect");
+  });
+}
+</script>
 
 </body>
 </html>
+
 
 
 

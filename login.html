@@ -21,7 +21,11 @@
 const API_URL = "https://script.google.com/macros/s/AKfycbzrYCRZR39YfLi8sWqfntPtP1pi5sCS94OqfU5Jl-Tt-lBUUiZxkn02bgnJeVBq1vxF/exec";
 
 function login() {
-  fetch(API_URL, {
+  console.log("LOGIN BUTTON CLICKED");
+
+  const empNo = document.getElementById("empNo").value;
+  const password = document.getElementById("password").value;
+  fetch(SCRIPT_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -31,6 +35,12 @@ function login() {
   })
   .then(res => res.json())
   .then(data => {
+          console.log("SERVER RESPONSE:", data);
+  })
+  .catch(err => {
+    console.error("FETCH ERROR:", err);
+  });
+}
     if (data.success) {
       // ✅ STORE SESSION
       localStorage.setItem("loggedIn", "YES");
@@ -51,6 +61,7 @@ function login() {
 </script>
 </body>
 </html>
+
 
 
 

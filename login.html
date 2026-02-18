@@ -23,44 +23,44 @@ const API_URL = "https://script.google.com/macros/s/AKfycbzrYCRZR39YfLi8sWqfntPt
 function login() {
   console.log("LOGIN BUTTON CLICKED");
 
-  const empNo = document.getElementById("empNo").value;
-  const password = document.getElementById("password").value;
-  fetch(SCRIPT_URL, {
+  const empNo = document.getElementById("empNo").value.trim();
+  const password = document.getElementById("password").value.trim();
+
+  fetch(API_URL, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json"
+    },
     body: JSON.stringify({
-      employee_no: empNo.value.trim(),
-      password: password.value.trim()
+      employee_no: empNo,
+      password: password
     })
   })
   .then(res => res.json())
   .then(data => {
-          console.log("SERVER RESPONSE:", data);
-  })
-  .catch(err => {
-    console.error("FETCH ERROR:", err);
-  });
-}
+    console.log("SERVER RESPONSE:", data);
+
     if (data.success) {
-      // ✅ STORE SESSION
+      // ✅ SAVE SESSION
       localStorage.setItem("loggedIn", "YES");
-      localStorage.setItem("empNo", empNo.value);
+      localStorage.setItem("empNo", empNo);
       localStorage.setItem("empName", data.name);
 
-      // ✅ FORCE REDIRECT
+      // ✅ REDIRECT
       window.location.replace("index.html");
     } else {
       alert("Invalid Employee Number or Password");
     }
   })
   .catch(err => {
+    console.error("FETCH ERROR:", err);
     alert("Server error. Please try again.");
-    console.error(err);
   });
 }
 </script>
 </body>
 </html>
+
 
 
 

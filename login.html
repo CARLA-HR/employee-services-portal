@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Employee Login</title>
+</head>
+
+<body style="font-family:Arial;text-align:center;padding:40px">
+
+<h2>Employee Portal Login</h2>
+
+<input id="empNo" placeholder="Employee Number"
+       style="padding:10px;width:220px"><br><br>
+
+<input id="password" type="password" placeholder="Password"
+       style="padding:10px;width:220px"><br><br>
+
+<button onclick="login()">Login</button>
+
+<script>
+const API_URL = "PASTE_YOUR_WEB_APP_URL";
+
+function login() {
+  fetch(API_URL, {
+    method: "POST",
+    body: JSON.stringify({
+      employee_no: empNo.value,
+      password: password.value
+    })
+  })
+  .then(r => r.json())
+  .then(d => {
+    if (d.success) {
+      localStorage.setItem("loggedIn", "true");
+      localStorage.setItem("empName", d.name);
+      window.location.href = "index.html";
+    } else {
+      alert("Invalid credentials");
+    }
+  });
+}
+</script>
+
+</body>
+</html>

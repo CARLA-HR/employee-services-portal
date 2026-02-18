@@ -23,23 +23,32 @@ const API_URL = "PASTE_YOUR_WEB_APP_URL";
 function login() {
   fetch(API_URL, {
     method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      employee_no: empNo.value,
-      password: password.value
+      employee_no: empNo.value.trim(),
+      password: password.value.trim()
     })
   })
-  .then(r => r.json())
-  .then(d => {
-    if (d.success) {
-      localStorage.setItem("loggedIn", "true");
-      localStorage.setItem("empName", d.name);
-      window.location.href = "index.html";
+  .then(res => res.json())
+  .then(data => {
+    if (data.success) {
+      // ✅ STORE SESSION
+      localStorage.setItem("loggedIn", "YES");
+      localStorage.setItem("empNo", empNo.value);
+      localStorage.setItem("empName", data.name);
+
+      // ✅ FORCE REDIRECT
+      window.location.replace("index.html");
     } else {
-      alert("Invalid credentials");
+      alert("Invalid Employee Number or Password");
     }
+  })
+  .catch(err => {
+    alert("Server error. Please try again.");
+    console.error(err);
   });
 }
 </script>
-
 </body>
 </html>
+

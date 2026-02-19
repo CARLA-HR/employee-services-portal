@@ -3,34 +3,61 @@
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Employee Login</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f4f6f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  .login-box {
+    background: white;
+    padding: 30px;
+    width: 280px;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,.15);
+    text-align: center;
+  }
+  input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+  }
+  button {
+    width: 100%;
+    padding: 10px;
+    background: #0f2a5c;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+</style>
 </head>
 
-<body style="font-family:Arial;text-align:center;padding:40px">
+<body>
 
-<h2>Employee Portal Login</h2>
+<div class="login-box">
+  <h3>Employee Portal</h3>
 
-<input id="empNo" placeholder="Employee Number"
-       style="padding:10px;width:220px"><br><br>
+  <input id="empNo" placeholder="Employee Number">
+  <input id="password" type="password" placeholder="Password">
 
-<input id="password" type="password" placeholder="Password"
-       style="padding:10px;width:220px"><br><br>
-
-<button onclick="login()">Login</button>
+  <button onclick="login()">Login</button>
+</div>
 
 <script>
 const API_URL = "https://script.google.com/macros/s/AKfycbzrYCRZR39YfLi8sWqfntPtP1pi5sCS94OqfU5Jl-Tt-lBUUiZxkn02bgnJeVBq1vxF/exec";
 
 function login() {
-  console.log("LOGIN BUTTON CLICKED");
-
   const empNo = document.getElementById("empNo").value.trim();
   const password = document.getElementById("password").value.trim();
 
   fetch(API_URL, {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
       employee_no: empNo,
       password: password
@@ -41,23 +68,20 @@ function login() {
     console.log("SERVER RESPONSE:", data);
 
     if (data.success) {
-      // ✅ SAVE SESSION
       localStorage.setItem("loggedIn", "YES");
       localStorage.setItem("empNo", empNo);
       localStorage.setItem("empName", data.name);
-
-      // ✅ REDIRECT
-      window.location.replace("index.html");
+      window.location.href = "index.html";
     } else {
       alert("Invalid Employee Number or Password");
     }
   })
   .catch(err => {
-    console.error("FETCH ERROR:", err);
+    console.error(err);
     alert("Server error. Please try again.");
   });
 }
 </script>
+
 </body>
 </html>
-
